@@ -1,0 +1,12 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "transite:transite_block"
+        }
+    ],
+    "result": {
+        "item": "transite:transite_ingot",
+        "count": 9
+    }
+}

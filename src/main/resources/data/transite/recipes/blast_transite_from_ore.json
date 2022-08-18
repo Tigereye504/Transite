@@ -1,0 +1,9 @@
+{
+    "type": "minecraft:blasting",
+    "ingredient": {
+      "item": "transite:transite_ore"
+    },
+    "result": "transite:transite_ingot",
+    "experience": 0.35,
+    "cookingtime": 100
+  }

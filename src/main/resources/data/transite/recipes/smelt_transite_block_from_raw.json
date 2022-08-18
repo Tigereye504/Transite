@@ -1,0 +1,9 @@
+{
+    "type": "minecraft:smelting",
+    "ingredient": {
+      "item": "transite:raw_transite_block"
+    },
+    "result": "transite:transite_block",
+    "experience": 3.15,
+    "cookingtime": 1400
+  }

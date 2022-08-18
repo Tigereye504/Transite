@@ -1,0 +1,15 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "transite:item/transite_pickaxe1"
+  },
+  "overrides": [
+    {"predicate": {"flex": 0}, "model": "transite:item/transite_pickaxe/flex_0"},
+    {"predicate": {"flex": 0.2}, "model": "transite:item/transite_pickaxe/flex_20"},
+    {"predicate": {"flex": 0.4}, "model": "transite:item/transite_pickaxe/flex_40"},
+    {"predicate": {"flex": 0.6}, "model": "transite:item/transite_pickaxe/flex_60"},
+    {"predicate": {"flex": 0.8}, "model": "transite:item/transite_pickaxe/flex_80"},
+    {"predicate": {"flex": 1}, "model": "transite:item/transite_pickaxe/flex_100"},
+    {"predicate": {"flex": 2}, "model": "transite:item/transite_pickaxe/flash"}
+  ]
+}

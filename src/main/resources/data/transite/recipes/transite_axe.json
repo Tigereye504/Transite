@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "##",
+        "/#",
+        "/ "
+    ],
+    "key": {
+        "#": {
+            "item": "transite:transite_ingot"
+        },
+        "/": {
+            "item": "minecraft:stick"
+        }
+    },
+    "result": {
+        "item": "transite:transite_axe",
+        "count": 1
+    }
+}

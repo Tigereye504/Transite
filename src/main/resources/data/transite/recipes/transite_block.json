@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###",
+        "###",
+        "###"
+    ],
+    "key": {
+        "#": {
+            "item": "transite:transite_ingot"
+        }
+    },
+    "result": {
+        "item": "transite:transite_block",
+        "count": 1
+    }
+}

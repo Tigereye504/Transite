@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "transite:transite_block",
+    "transite:transite_ore",
+    "transite:deepslate_transite_ore",
+    "transite:raw_transite_block"
+  ]
+}

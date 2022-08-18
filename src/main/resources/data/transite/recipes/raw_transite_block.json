@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###",
+        "###",
+        "###"
+    ],
+    "key": {
+        "#": {
+            "item": "transite:raw_transite"
+        }
+    },
+    "result": {
+        "item": "transite:raw_transite_block",
+        "count": 1
+    }
+}

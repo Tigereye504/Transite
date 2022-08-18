@@ -1,0 +1,21 @@
+{
+    "block.transite.raw_transite_block": "Raw Transite Block",
+    "block.transite.transite_ore": "Transite Ore",
+    "block.transite.deepslate_transite_ore": "Deepslate Transite Ore",
+    "block.transite.transite_block": "Transite Block",
+    "item.transite.raw_transite": "Raw Transite",
+    "item.transite.transite_ingot": "Transite Ingot",
+    "item.transite.transite_axe": "Transite Axe",
+    "item.transite.transite_hoe": "Transite Hoe",
+    "item.transite.transite_pickaxe": "Transite Pickaxe",
+    "item.transite.transite_shovel": "Transite Shovel",
+    "item.transite.transite_sword": "Transite Sword",
+    "item.transite.transite_helmet": "Transite Helmet",
+    "item.transite.transite_chestplate": "Transite Chestplate",
+    "item.transite.transite_leggings": "Transite Leggings",
+    "item.transite.transite_boots": "Transite Boots",
+    "text.autoconfig.transite.title": "Transite",
+    "text.autoconfig.transite.config": "Config",
+    "text.autoconfig.transite.option.TRANSITION_FREQUENCY": "Frequency of Transite Tool Transition",
+    "text.transite.waxed": "Waxed"
+}
