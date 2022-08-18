@@ -1,0 +1,40 @@
+{
+    "parent": "minecraft:recipes/root",
+    "rewards": {
+      "recipes": [
+        "transite:transite_axe",
+        "transite:transite_hoe",
+        "transite:transite_pickaxe",
+        "transite:transite_shovel",
+        "transite:transite_sword",
+        "transite:transite_block",
+        "transite:transite_ingot_from_block",
+        "transite:raw_transite_block",
+        "transite:raw_transite_from_block"
+      ]
+    },
+    "criteria": {
+      "has_diamond_shard": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "item": "transite:transite_ingot"
+            }
+          ]
+        }
+      },
+      "has_the_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "transite:transite_pickaxe"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_diamond_shard",
+        "has_the_recipe"
+      ]
+    ]
+  }

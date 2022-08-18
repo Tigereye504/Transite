@@ -53,7 +53,7 @@ public class TransiteItems {
     public static final TransiteTool TRANSITE_AXE = new TransiteTool(5,-3,TRANSITE_MATERIAL,BlockTags.AXE_MINEABLE,new Item.Settings().group(ItemGroup.TOOLS));
     public static final TransiteTool TRANSITE_SHOVEL = new TransiteTool(1.5F,-3,TRANSITE_MATERIAL,BlockTags.SHOVEL_MINEABLE,new Item.Settings().group(ItemGroup.TOOLS));
     public static final TransiteTool TRANSITE_HOE = new TransiteTool(-4,0,TRANSITE_MATERIAL,BlockTags.HOE_MINEABLE,new Item.Settings().group(ItemGroup.TOOLS));
-    public static final TransiteTool TRANSITE_SWORD = new TransiteTool(3,-2.4F,TRANSITE_MATERIAL,BlockTags.PORTALS,new Item.Settings().group(ItemGroup.TOOLS));
+    public static final TransiteTool TRANSITE_SWORD = new TransiteTool(3,-2.4F,TRANSITE_MATERIAL,BlockTags.PORTALS,new Item.Settings().group(ItemGroup.COMBAT));
     public static SpecialRecipeSerializer<WaxTransiteToolRecipe> WAX_TRANSITE_TOOL_RECIPE = new SpecialRecipeSerializer<>(WaxTransiteToolRecipe::new);
 
     public static final ArmorMaterial TRANSITE_ARMOR_MATERIAL = new TransiteArmorMaterial();
