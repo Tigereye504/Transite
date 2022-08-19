@@ -43,6 +43,13 @@ public class TransiteItems {
             .strength(3f,50f)
             .requiresTool()
             .sounds(BlockSoundGroup.STONE));
+
+    public static final Block TRANSITE_BRICKS = new Block(FabricBlockSettings
+            .of(Material.STONE)
+            .strength(3f,40f)
+            .requiresTool()
+            .sounds(BlockSoundGroup.STONE));
+    public static final BlockItem TRANSITE_BRICKS_ITEM = new BlockItem(TRANSITE_BRICKS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
     public static final BlockItem TRANSITE_BLOCK_ITEM = new BlockItem(TRANSITE_BLOCK, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
 
     public static final Item TRANSITE_INGOT = new Item(new Item.Settings().group(ItemGroup.MISC));
@@ -86,6 +93,8 @@ public class TransiteItems {
         registerItem("raw_transite_block", RAW_TRANSITE_BLOCK_ITEM);
         registerBlock("transite_block", TRANSITE_BLOCK);
         registerItem("transite_block", TRANSITE_BLOCK_ITEM);
+        registerBlock("transite_bricks", TRANSITE_BRICKS);
+        registerItem("transite_bricks",TRANSITE_BRICKS_ITEM);
     }
 
     private static void registerItem(String name, Item item) {

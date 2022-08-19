@@ -1,6 +1,7 @@
 {
-    "parent": "block/cube_all",
+    "parent": "minecraft:block/cube_column",
     "textures": {
-        "all": "transite:block/transite_block"
+        "end": "transite:block/transite_block_top",
+        "side": "transite:block/transite_block"
     }
 }
