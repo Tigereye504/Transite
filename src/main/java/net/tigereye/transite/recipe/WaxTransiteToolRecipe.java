@@ -1,11 +1,14 @@
 package net.tigereye.transite.recipe;
 
 import net.minecraft.inventory.CraftingInventory;
+import net.minecraft.inventory.RecipeInputInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.SpecialCraftingRecipe;
+import net.minecraft.recipe.book.CraftingRecipeCategory;
+import net.minecraft.registry.DynamicRegistryManager;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 import net.tigereye.transite.item.TransiteArmor;
@@ -14,11 +17,15 @@ import net.tigereye.transite.register.TransiteItems;
 
 public class WaxTransiteToolRecipe extends SpecialCraftingRecipe {
 
-    public WaxTransiteToolRecipe(Identifier id) {
-        super(id);
+    public WaxTransiteToolRecipe() {
+        super(CraftingRecipeCategory.EQUIPMENT);
     }
 
-    public boolean matches(CraftingInventory craftingInventory, World world) {
+    public WaxTransiteToolRecipe(CraftingRecipeCategory craftingRecipeCategory) {
+        super(craftingRecipeCategory);
+    }
+
+    public boolean matches(RecipeInputInventory craftingInventory, World world) {
         boolean foundTool = false;
         boolean foundWax = false;
         for(int i = 0; i < craftingInventory.getWidth(); ++i) {
@@ -42,7 +49,7 @@ public class WaxTransiteToolRecipe extends SpecialCraftingRecipe {
         return foundTool && foundWax;
     }
 
-    public ItemStack craft(CraftingInventory craftingInventory) {
+    public ItemStack craft(RecipeInputInventory craftingInventory, DynamicRegistryManager registryManager) {
         ItemStack tool = null;
         boolean foundWax = false;
         for(int i = 0; i < craftingInventory.getWidth(); ++i) {

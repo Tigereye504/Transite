@@ -11,11 +11,12 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
 import net.minecraft.nbt.*;
-import net.minecraft.tag.TagKey;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.tag.TagKey;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.registry.Registry;
 import net.minecraft.world.World;
 import net.tigereye.transite.Transite;
 import net.tigereye.transite.register.TransiteItems;
@@ -47,7 +48,7 @@ public class TransiteTool extends MiningToolItem {
             float flex = 0;
             float assumedItemSpeed = 0;
             flex = nbt.getFloat(TRANSITE_FLEX_KEY);
-            assumedItemSpeed = ((TransiteTool)(Registry.ITEM.get(new Identifier(nbt.getString(TRANSITE_ASSUMED_TOOL_KEY))))).getUnflexedMiningSpeedMultiplier(stack,state);
+            assumedItemSpeed = ((TransiteTool)(Registries.ITEM.get(new Identifier(nbt.getString(TRANSITE_ASSUMED_TOOL_KEY))))).getUnflexedMiningSpeedMultiplier(stack,state);
             return (getUnflexedMiningSpeedMultiplier(stack,state)*(1-flex)) + assumedItemSpeed;
         }
         else{
@@ -69,7 +70,7 @@ public class TransiteTool extends MiningToolItem {
         NbtCompound nbt = context.getStack().getOrCreateNbt();
         Item assumedItem = null;
         if(nbt.contains(TRANSITE_ASSUMED_TOOL_KEY)){
-            assumedItem = Registry.ITEM.get(new Identifier(nbt.getString(TRANSITE_ASSUMED_TOOL_KEY)));
+            assumedItem = Registries.ITEM.get(new Identifier(nbt.getString(TRANSITE_ASSUMED_TOOL_KEY)));
         }
         
         if(item == TransiteItems.TRANSITE_AXE || assumedItem == TransiteItems.TRANSITE_AXE) {
@@ -101,7 +102,7 @@ public class TransiteTool extends MiningToolItem {
         else {
             NbtCompound nbt = stack.getOrCreateNbt();
             if (nbt.contains(TRANSITE_ASSUMED_TOOL_KEY)) {
-                return Registry.ITEM.get(new Identifier(nbt.getString(TRANSITE_ASSUMED_TOOL_KEY))) == TransiteItems.TRANSITE_SWORD;
+                return Registries.ITEM.get(new Identifier(nbt.getString(TRANSITE_ASSUMED_TOOL_KEY))) == TransiteItems.TRANSITE_SWORD;
             }
             else{
                 return false;
@@ -144,7 +145,7 @@ public class TransiteTool extends MiningToolItem {
             do {
                 itemToAssume = TRANSITION_OPTIONS.get(world.getRandom().nextInt(TRANSITION_OPTIONS.size()));
                 if (stack.getItem() != itemToAssume) {
-                    nbt.putString(TRANSITE_ASSUMED_TOOL_KEY, Registry.ITEM.getId(itemToAssume).toString());
+                    nbt.putString(TRANSITE_ASSUMED_TOOL_KEY, Registries.ITEM.getId(itemToAssume).toString());
                 }
             }while(stack.getItem() == itemToAssume);
         }
@@ -166,7 +167,7 @@ public class TransiteTool extends MiningToolItem {
         boolean resetAttributes = false;
         Item thisItem = stack.getItem();
         if(nbt.contains(TRANSITE_ASSUMED_TOOL_KEY)) {
-            Item assumedItem = Registry.ITEM.get(new Identifier(nbt.getString(TRANSITE_ASSUMED_TOOL_KEY)));
+            Item assumedItem = Registries.ITEM.get(new Identifier(nbt.getString(TRANSITE_ASSUMED_TOOL_KEY)));
             if(assumedItem instanceof MiningToolItem aItem && thisItem instanceof MiningToolItem tItem){
                 float flex = nbt.getFloat(TRANSITE_FLEX_KEY);
                 double attackModifier = (aItem.getAttackDamage()*flex) + (tItem.getAttackDamage()*(1-flex));
@@ -237,7 +238,7 @@ public class TransiteTool extends MiningToolItem {
         }
 
         NbtCompound nbtCompound = modifier.toNbt();
-        nbtCompound.putString("AttributeName", Registry.ATTRIBUTE.getId(attribute).toString());
+        nbtCompound.putString("AttributeName", Registries.ATTRIBUTE.getId(attribute).toString());
         if (slot != null) {
             nbtCompound.putString("Slot", slot.getName());
         }
@@ -254,7 +255,7 @@ public class TransiteTool extends MiningToolItem {
     public Text getName(ItemStack stack) {
         NbtCompound nbt = stack.getOrCreateNbt();
         if(nbt.contains(TRANSITE_ASSUMED_TOOL_KEY)){
-            return Text.translatable(Registry.ITEM.get(new Identifier(nbt.getString(TRANSITE_ASSUMED_TOOL_KEY))).getTranslationKey());
+            return Text.translatable(Registries.ITEM.get(new Identifier(nbt.getString(TRANSITE_ASSUMED_TOOL_KEY))).getTranslationKey());
         }
         else {
             return Text.translatable(this.getTranslationKey(stack));

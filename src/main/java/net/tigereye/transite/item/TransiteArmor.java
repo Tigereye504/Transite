@@ -12,9 +12,9 @@ import net.minecraft.item.*;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.nbt.NbtList;
+import net.minecraft.registry.Registries;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 import net.tigereye.transite.Transite;
 import org.jetbrains.annotations.Nullable;
@@ -51,7 +51,7 @@ public class TransiteArmor extends ArmorItem {
             UUID.fromString("cbb07c9e-1dbb-11ed-861d-0242ac120004"),
             UUID.fromString("cbb07c9e-1dbb-11ed-861d-0242ac120005")};
 
-    public TransiteArmor(ArmorMaterial material, EquipmentSlot slot, Settings settings) {
+    public TransiteArmor(ArmorMaterial material, ArmorItem.Type slot, Settings settings) {
         super(material, slot, settings);
         TRANSITION_OPTIONS.add(this);
     }
@@ -91,7 +91,7 @@ public class TransiteArmor extends ArmorItem {
             do {
                 itemToAssume = TRANSITION_OPTIONS.get(world.getRandom().nextInt(TRANSITION_OPTIONS.size()));
                 if (stack.getItem() != itemToAssume) {
-                    nbt.putString(TRANSITE_ASSUMED_ARMOR_KEY, Registry.ITEM.getId(itemToAssume).toString());
+                    nbt.putString(TRANSITE_ASSUMED_ARMOR_KEY, Registries.ITEM.getId(itemToAssume).toString());
                 }
             }while(stack.getItem() == itemToAssume);
         }
@@ -113,10 +113,10 @@ public class TransiteArmor extends ArmorItem {
         boolean resetAttributes = false;
         Item thisItem = stack.getItem();
         if(nbt.contains(TRANSITE_ASSUMED_ARMOR_KEY)) {
-            Item assumedItem = Registry.ITEM.get(new Identifier(nbt.getString(TRANSITE_ASSUMED_ARMOR_KEY)));
+            Item assumedItem = Registries.ITEM.get(new Identifier(nbt.getString(TRANSITE_ASSUMED_ARMOR_KEY)));
             if(assumedItem instanceof TransiteArmor aItem && thisItem instanceof TransiteArmor tItem){
                 float flex = nbt.getFloat(TRANSITE_FLEX_KEY);
-                double protectionModifier = (aItem.type.getProtectionAmount(aItem.getSlotType())*flex) + (tItem.type.getProtectionAmount(tItem.getSlotType())*(1-flex));
+                double protectionModifier = (aItem.getProtection()*flex) + (tItem.getProtection()*(1-flex));
                 double toughnessModifier = (aItem.getToughness(aItem.getSlotType())*flex) + (tItem.getToughness(tItem.getSlotType())*(1-flex));
                 double knockbackResistanceModifier = (aItem.getKnockbackResistance(aItem.getSlotType())*flex) + (tItem.getKnockbackResistance(tItem.getSlotType())*(1-flex));
 
@@ -138,7 +138,7 @@ public class TransiteArmor extends ArmorItem {
         else resetAttributes = true;
 
         if(resetAttributes && thisItem instanceof TransiteArmor tItem){
-            double protectionModifier = tItem.type.getProtectionAmount(tItem.getSlotType());
+            double protectionModifier = tItem.getProtection();
             double toughnessModifier = tItem.getToughness(tItem.getSlotType());
             double knockbackResistanceModifier = tItem.getKnockbackResistance(tItem.getSlotType());
 
@@ -182,7 +182,7 @@ public class TransiteArmor extends ArmorItem {
         }
 
         NbtCompound nbtCompound = modifier.toNbt();
-        nbtCompound.putString("AttributeName", Registry.ATTRIBUTE.getId(attribute).toString());
+        nbtCompound.putString("AttributeName", Registries.ATTRIBUTE.getId(attribute).toString());
         if (slot != null) {
             nbtCompound.putString("Slot", slot.getName());
         }
@@ -199,7 +199,7 @@ public class TransiteArmor extends ArmorItem {
     public Text getName(ItemStack stack) {
         NbtCompound nbt = stack.getOrCreateNbt();
         if(nbt.contains(TRANSITE_ASSUMED_ARMOR_KEY)){
-            return Text.translatable(Registry.ITEM.get(new Identifier(nbt.getString(TRANSITE_ASSUMED_ARMOR_KEY))).getTranslationKey());
+            return Text.translatable(Registries.ITEM.get(new Identifier(nbt.getString(TRANSITE_ASSUMED_ARMOR_KEY))).getTranslationKey());
         }
         else {
             return Text.translatable(this.getTranslationKey(stack));
