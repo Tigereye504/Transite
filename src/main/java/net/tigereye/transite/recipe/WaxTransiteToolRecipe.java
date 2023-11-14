@@ -1,6 +1,5 @@
 package net.tigereye.transite.recipe;
 
-import net.minecraft.inventory.CraftingInventory;
 import net.minecraft.inventory.RecipeInputInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -17,12 +16,8 @@ import net.tigereye.transite.register.TransiteItems;
 
 public class WaxTransiteToolRecipe extends SpecialCraftingRecipe {
 
-    public WaxTransiteToolRecipe() {
-        super(CraftingRecipeCategory.EQUIPMENT);
-    }
-
-    public WaxTransiteToolRecipe(CraftingRecipeCategory craftingRecipeCategory) {
-        super(craftingRecipeCategory);
+    public WaxTransiteToolRecipe(Identifier id, CraftingRecipeCategory craftingRecipeCategory) {
+        super(id, craftingRecipeCategory);
     }
 
     public boolean matches(RecipeInputInventory craftingInventory, World world) {
