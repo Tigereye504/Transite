@@ -4,9 +4,7 @@ import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
-import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
-import net.minecraft.recipe.FireworkStarRecipe;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.SpecialRecipeSerializer;
 import net.minecraft.registry.Registries;
@@ -75,7 +73,7 @@ public class TransiteItems {
         registerItem("transite_shovel", TRANSITE_SHOVEL);
         registerItem("transite_hoe", TRANSITE_HOE);
         registerItem("transite_sword", TRANSITE_SWORD);
-        Registry.register(Registries.RECIPE_SERIALIZER, Transite.MODID+":crafting_special_wax_transite_tool", WAX_TRANSITE_TOOL_RECIPE);
+        //Registry.register(Registries.RECIPE_SERIALIZER, Transite.MODID+":crafting_special_wax_transite_tool", WAX_TRANSITE_TOOL_RECIPE);
 
         registerItem("transite_helmet", TRANSITE_HELM);
         registerItem("transite_chestplate", TRANSITE_CHESTPLATE);
